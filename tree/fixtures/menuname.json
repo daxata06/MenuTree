@@ -1,0 +1,19 @@
+[
+    {
+        "model": "tree.menuname",
+        "pk": 1,
+        "fields": {
+            "name": "menu1",
+            "slug": "/menu1"
+        }
+    },
+    {
+        "model": "tree.menuname",
+        "pk": 2,
+        "fields": {
+            "name": "menu2",
+            "slug": "/menu2"
+        }
+    }
+    ]
+    

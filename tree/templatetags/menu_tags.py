@@ -3,14 +3,16 @@ from django.templatetags.cache import register
 from tree.models import Menu
 
 
-@register.inclusion_tag('tree/menu.html', takes_context=True)
+@register.inclusion_tag("tree/menu.html", takes_context=True)
 def draw_menu(context: RequestContext, menu_name: str) -> dict:
-    request = context['request']
-    elements = list(filter(None, request.path.split('/')))
+    request = context["request"]
+    elements = list(filter(None, request.path.split("/")))
     element_html = f'<a href="/{menu_name}">{menu_name}</a></br>'
 
     if elements and menu_name in elements:
-        menu_items = Menu.objects.select_related('menu_name', 'parent').filter(menu_name__name=menu_name)
+        menu_items = Menu.objects.select_related("menu_name", "parent").filter(
+            menu_name__name=menu_name
+        )
 
         new_menu_items = []
         for menu_item in menu_items:
@@ -20,12 +22,12 @@ def draw_menu(context: RequestContext, menu_name: str) -> dict:
 
         roots = Node().get_item(new_menu_items)
         result = NodeMenuHtmlRender(roots)
-        return {'menu': element_html, 'menu_items': result.tree()}
-    return {'menu_items': element_html}
+        return {"menu": element_html, "menu_items": result.tree()}
+    return {"menu_items": element_html}
 
 
 class Node:
-    __slots__ = 'children', 'item', 'item_slug', 'objects', 'roots'
+    __slots__ = "children", "item", "item_slug", "objects", "roots"
 
     def __init__(self, children=None, item=None, item_slug=None):
         self.objects = {}
@@ -55,7 +57,7 @@ class Node:
 
 
 class NodeMenuHtmlRender:
-    __slots__ = 'html_result', 'roots'
+    __slots__ = "html_result", "roots"
 
     def __init__(self, roots):
         self.html_result = None

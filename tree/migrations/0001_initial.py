@@ -8,34 +8,92 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='MenuName',
+            name="MenuName",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, unique=True, verbose_name='Название Меню')),
-                ('link', models.CharField(blank=True, editable=False, max_length=250, verbose_name='Ссылка')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        max_length=100, unique=True, verbose_name="Название Меню"
+                    ),
+                ),
+                (
+                    "link",
+                    models.CharField(
+                        blank=True,
+                        editable=False,
+                        max_length=250,
+                        verbose_name="Ссылка",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Меню',
-                'verbose_name_plural': 'Меню',
+                "verbose_name": "Меню",
+                "verbose_name_plural": "Меню",
             },
         ),
         migrations.CreateModel(
-            name='Menu',
+            name="Menu",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=150, unique=True, verbose_name='Название элемента')),
-                ('link', models.CharField(blank=True, editable=False, max_length=250, verbose_name='Ссылка')),
-                ('parent', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='children', to='tree.menu', verbose_name='Родительский обьект')),
-                ('menu_name', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='tree.menuname', verbose_name='Меню')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        max_length=150, unique=True, verbose_name="Название элемента"
+                    ),
+                ),
+                (
+                    "link",
+                    models.CharField(
+                        blank=True,
+                        editable=False,
+                        max_length=250,
+                        verbose_name="Ссылка",
+                    ),
+                ),
+                (
+                    "parent",
+                    models.ForeignKey(
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="children",
+                        to="tree.menu",
+                        verbose_name="Родительский обьект",
+                    ),
+                ),
+                (
+                    "menu_name",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="tree.menuname",
+                        verbose_name="Меню",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Пункт меню',
-                'verbose_name_plural': 'Пункты меню',
+                "verbose_name": "Пункт меню",
+                "verbose_name_plural": "Пункты меню",
             },
         ),
     ]

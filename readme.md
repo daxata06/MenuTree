@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MenuTree - Инструкция по установке</title>
+  <meta charset="UTF-8">
 </head>
 <body>
-    <h1>Инструкция по установке MenuTree</h1>
-    
-    <h2>1. Клонирование репозитория</h2>
-    <pre><code>git clone https://github.com/daxata06/MenuTree.git
-cd MenuTree</code></pre>
+  <h1>Запуск и установка</h1>
 
-    <h2>2. Создание виртуального окружения</h2>
-    
-    <h3>Для Windows:</h3>
-    <pre><code>python -m venv venv
-venv\Scripts\activate</code></pre>
-    
-    <h3>Для Linux/macOS:</h3>
-    <pre><code>python3 -m venv venv
-source venv/bin/activate</code></pre>
+  <h2>📥 Клонирование репозитория</h2>
+  <p>Склонируйте проект с GitHub:</p>
+  <pre><code>git clone https://github.com/daxata06/MenuTree.git</code></pre>
+  <p>Перейдите в директорию проекта:</p>
+  <pre><code>cd MenuTree</code></pre>
 
-    <h2>3. Установка зависимостей</h2>
-    <pre><code>pip install -r requirements.txt</code></pre>
+  <h2>📦 Установка и запуск</h2>
 
-    <h2>4. Применение миграций</h2>
-    <pre><code>python manage.py migrate</code></pre>
+  <h3>1. 🔧 Создание виртуального окружения</h3>
+  <p>Откройте терминал и выполните:</p>
+  <pre><code>python -m venv venv</code></pre>
 
-    <h2>5. Загрузка тестовых данных</h2>
-    <pre><code>python manage.py initialize</code></pre>
+  <p><strong>Активация виртуального окружения:</strong></p>
+  <ul>
+    <li><strong>Windows:</strong> <code>venv\Scripts\activate</code></li>
+    <li><strong>macOS/Linux:</strong> <code>source venv/bin/activate</code></li>
+  </ul>
 
-    <h2>6. Запуск сервера</h2>
-    <pre><code>python manage.py runserver</code></pre>
+  <h3>2. 🧪 Установка зависимостей</h3>
+  <p>Установите необходимые зависимости:</p>
+  <pre><code>pip install -r requirements.txt</code></pre>
 
-    <p>После выполнения этих команд приложение будет доступно по адресу <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a></p>
+  <h3>3. 🛠 Применение миграций</h3>
+  <pre><code>python manage.py migrate</code></pre>
+
+  <h3>4. 🌱 Загрузка тестовых данных</h3>
+  <pre><code>python manage.py initialize</code></pre>
+
+  <h2>🚀 Запуск сервера</h2>
+  <pre><code>python manage.py runserver</code></pre>
+  <p>Приложение будет доступно по адресу: <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a></p>
 </body>
 </html>
